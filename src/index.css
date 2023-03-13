@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "NEXABOLD";
+  src: url("./static/fonts/NexaBold.ttf") format("ttf");
+
+  font-family: "HEY TINY DEMO";
+  src: url("./static/fonts/Hey\ Tiny\ DEMO.ttf") format("ttf");
+}
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,

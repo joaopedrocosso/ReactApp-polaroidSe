@@ -1,53 +1,52 @@
-import airbnb from "./airbnb.png";
-import bill from "./bill.png";
-import binance from "./binance.png";
-import card from "./card.png";
-import coinbase from "./coinbase.png";
-import dropbox from "./dropbox.png";
 import logo from "./logo.svg";
-import quotes from "./quotes.svg";
-import robot from "./robot.png";
-import send from "./Send.svg";
-import shield from "./Shield.svg";
-import star from "./Star.svg";
 import menu from "./menu.svg";
+import bill from "./bill.svg";
 import close from "./close.svg";
 import google from "./google.svg";
 import apple from "./apple.svg";
-import arrowUp from "./arrow-up.svg";
-import discount from "./Discount.svg";
-import facebook from "./facebook.svg";
-import instagram from "./instagram.svg";
-import linkedin from "./linkedin.svg";
-import twitter from "./twitter.svg";
-import people01 from "./people01.png";
-import people02 from "./people02.png";
-import people03 from "./people03.png";
+import mini from "./mini.svg";
+import square from "./square.svg";
+import wide from "./wide.svg";
+import envie from "./envie.svg";
+import criarPolaroid from "./criarPolaroid.svg";
+import miniBanner from "./miniBanner.svg"
+import squareBanner from "./squareBanner.svg"
+import wideBanner from "./wideBanner.svg"
+import download from "./download.svg"
+import miniMoldura from "./miniMoldura.png"
+import squareMoldura from "./squareMoldura.png"
+import wideMoldura from "./wideMoldura.png"
+import miniSelector from "./miniSelector.svg"
+import squareSelector from "./squareSelector.svg"
+import wideSelector from "./wideSelector.svg"
+import fotoErrada from "./fotoErrada.svg"
+import test from "./test.png"
+import size from "./size.svg"
+
 
 export {
-  airbnb,
   bill,
-  binance,
-  card,
-  coinbase,
-  dropbox,
   logo,
-  quotes,
-  robot,
-  send,
-  shield,
-  star,
   menu,
   close,
   google,
   apple,
-  arrowUp,
-  discount,
-  facebook,
-  instagram,
-  linkedin,
-  twitter,
-  people01,
-  people02,
-  people03,
+  mini,
+  square,
+  wide,
+  envie,
+  criarPolaroid,
+  miniBanner,
+  squareBanner,
+  wideBanner,
+  download,
+  miniMoldura,
+  squareMoldura,
+  wideMoldura,
+  miniSelector,
+  squareSelector,
+  wideSelector,
+  fotoErrada,
+  test,
+  size
 };

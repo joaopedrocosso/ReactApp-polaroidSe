@@ -1,31 +1,73 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
+import { Link } from 'react-scroll'
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleClick = (title) => {
+    setActive(title);
+    setToggle(false);
+  }
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
+    <nav
+      className={`w-full flex py-6 justify-between items-center navbar fixed top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white" : ""
+      }`}
+    >
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((nav, index) => (
+      {/* Logo do site */}
+      <Link
+        to="envie sua foto"
+        smooth={true}
+        duration={20}
+        offset={-100}
+        className="w-[186px] h-[48px] cursor-pointer"
+      >
+        <img src={logo} alt="hoobank" className="w-full h-full md:ml-12 xl:ml-6" />
+      </Link>
+      {/* Logo do site */}
+
+      {/* Menu */}  
+      <ul className="list-none sm:flex hidden justify-end items-center flex-1 mr-36 pr-0 xl:mr-96 xl:pr-36">
+        {navLinks.map((nav) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => setActive(nav.title)}
+            className={`font-NexaBold cursor-pointer text-[14px] tracking-wider ${
+              active === nav.title ? "text-black" : "text-dimBlack"
+            } ${navLinks.indexOf(nav) === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <Link
+              to={nav.id}
+              smooth={true}
+              duration={20}
+              offset={-100}
+              onClick={() => handleClick(nav.title)}
+            >
+              {nav.title}
+            </Link>
           </li>
         ))}
       </ul>
+      {/* Menu */} 
 
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      {/* Menu responsívo para o celular */}      
+      <div className="sm:hidden flex flex-1 justify-end items-center mr-20">
         <img
           src={toggle ? close : menu}
           alt="menu"
@@ -36,23 +78,34 @@ const Navbar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+          } p-6 bg-white absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar w-full`}
         >
+
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
-            {navLinks.map((nav, index) => (
+            {navLinks.map((nav) => (
               <li
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={() => setActive(nav.title)}
+                  active === nav.title ? "text-black" : "text-dimBlack"
+                } ${navLinks.indexOf(nav) === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <Link
+                  to={nav.id}
+                  smooth={true}
+                  duration={20}
+                  offset={-100}
+                  onClick={() => handleClick(nav.title)}
+                >
+                  {nav.title}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
+
       </div>
+      {/* Menu responsívo para o celular */} 
+
     </nav>
   );
 };

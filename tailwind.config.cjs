@@ -4,6 +4,23 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
+
+
+      
+      // that is animation class
+      animation: {
+        fade: 'fadeOut 5s ease-in-out',
+      },
+
+      // that is actual animation
+      keyframes: theme => ({
+        fadeOut: {
+          '0%': { backgroundColor: theme('colors.red.300') },
+          '100%': { backgroundColor: theme('colors.transparent') },
+          },
+      }),
+
+
       colors: {
         primary: "#00040f",
         secondary: "#00f6ff",
@@ -12,6 +29,8 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        HeyTinyDEMO: ["HEY TINY DEMO", "cursive"],
+        NexaBold: ["NEXABOLD",  "sans-serif"]
       },
     },
     screens: {
@@ -22,6 +41,22 @@ module.exports = {
       lg: "1200px",
       xl: "1700px",
     },
+
+    letterSpacing: {
+      tightest: '-.075em',
+      tighter: '-.05em',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.025em',
+      wider: '.1em',
+      widest: '.1em',
+      widest: '.25em',
   },
+
+  rotate: {
+    '175': '175deg',
+    '5': '5deg',
+  },
+
   plugins: [],
-};
+}}

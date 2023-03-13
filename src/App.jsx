@@ -1,30 +1,29 @@
 import styles from "./style";
-import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "./components";
+import { ButtonPrinted, HowToPrint, Footer, Navbar, Hero } from "./components";
 
 const App = () => (
-  <div className="bg-primary w-full overflow-hidden">
+  <div className="bg-white xl:pr-16 w-full overflow-hidden">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Navbar />
       </div>
     </div>
 
-    <div className={`bg-primary ${styles.flexStart}`}>
-      <div className={`${styles.boxWidth}`}>
-        <Hero />
+    <div className="bg-black md:mr-16 xl:mr-0">
+      <div className={`bg-white ${styles.flexStart}`}>
+        <div className={`${styles.boxWidth}`}>
+          <div className="">
+            <Hero />
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}>
-        <Stats />
-        <Business />
-        <Billing />
-        <CardDeal />
-        <Testimonials />
-        <Clients />
-        <CTA />
-        <Footer />
+      
+      <div className={`bg-white ${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <ButtonPrinted />
+          <HowToPrint />
+          <Footer />
+        </div>
       </div>
     </div>
   </div>

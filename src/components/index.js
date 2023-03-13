@@ -1,23 +1,15 @@
 import Navbar from "./Navbar";
-import Billing from "./Billing";
-import CardDeal from "./CardDeal";
-import Business from "./Business";
-import Clients from "./Clients";
-import CTA from "./CTA";
-import Stats from "./Stats";
+import Demonstration from "./Demonstration";
+import HowToPrint from "./HowToPrint";
+import ButtonPrinted from "./ButtonPrinted";
 import Footer from "./Footer";
-import Testimonials from "./Testimonials";
 import Hero from "./Hero";
 
 export {
   Navbar,
-  Billing,
-  CardDeal,
-  Business,
-  Clients,
-  CTA,
-  Stats,
+  Demonstration,
+  HowToPrint,
+  ButtonPrinted,
   Footer,
-  Testimonials,
-  Hero,
+  Hero
 };
