@@ -41,7 +41,6 @@ const Navbar = () => {
       >
         <img src={logo} alt="hoobank" className="w-full h-full md:ml-12 xl:ml-6" />
       </Link>
-      {/* Logo do site */}
 
       {/* Menu */}  
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 mr-36 pr-0 xl:mr-96 xl:pr-36">
@@ -64,7 +63,6 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      {/* Menu */} 
 
       {/* Menu responsívo para o celular */}      
       <div className="sm:hidden flex flex-1 justify-end items-center mr-20">
@@ -101,10 +99,9 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        </div>
 
+        </div>
       </div>
-      {/* Menu responsívo para o celular */} 
 
     </nav>
   );

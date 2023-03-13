@@ -4,7 +4,6 @@ import Demonstration from "./Demonstration";
 const Hero = () => {
   return (
     <section id="envie sua foto" className={`flex md:flex-row sm:py-6 mt-20`}>
-
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
 
         {/* Titulo do Hero */}
@@ -14,17 +13,13 @@ const Hero = () => {
           instantaneamente! <br className="sm:block hidden" />{" "}
           </h1>
         </div>
-        {/* Titulo do Hero */}
 
-        {/* Fotos/Apresentação do Hero */}
+        {/* Apresentação do Hero */}
         <div className="py-0 sm:py-6 mb-16 sm:mb-0">
           <Demonstration/>
         </div>
-        {/* Fotos/Apresentação do Hero */}
-
 
       </div>
-
     </section>
   );
 };

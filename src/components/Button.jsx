@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 import { criarPolaroid, envie, miniSelector, squareSelector, wideSelector, fotoErrada, download, size } from "../assets";
 import { logo } from "../assets";
 import { toPng } from "html-to-image";
-import { saveAs } from 'file-saver';
-import html2canvas from "html2canvas";
 
 export default function Button() {
   const [image, setImage] = useState({ preview: "", raw: "" });

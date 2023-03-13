@@ -12,7 +12,6 @@ const HowToPrint = () => (
         </h1>
 
         <section id="product" className="flex flex-col sm:flex-row mb-8 ">
-
           <div className={layout.sectionImgReverse}>
             <img src={mini} alt="mini" className="w-[160.19px] sm:w-[205.19px] sm:h-[392.04] ml-0 sm:ml-72 object-contain " />
 
@@ -29,6 +28,7 @@ const HowToPrint = () => (
       </div>
 
       <div>
+
         <h1 className="flex-1 font-HeyTinyDEMO ss:text-[34px] text-[32px] text-black text-center mt-12 mx-12">
           2. Material: <br className="sm:block hidden" />{" "}
         </h1>
@@ -36,6 +36,7 @@ const HowToPrint = () => (
         <p className={`${styles.paragraph} mx-20 mt-1.2 text-[14px] sm:text-[16px] text-black text-center`}>
           Imprima as fotos em papel fotográfico brilhante, com gramatura de 260g/m² 
         </p>     
+        
       </div>
 
     </div>

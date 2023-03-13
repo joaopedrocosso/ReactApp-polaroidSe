@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
 import menu from "./menu.svg";
-import bill from "./bill.svg";
+import inputPicture from "./inputPicture.svg";
 import close from "./close.svg";
-import google from "./google.svg";
-import apple from "./apple.svg";
+import outputPicture from "./outputPicture.svg";
+import arrow from "./arrow.svg";
 import mini from "./mini.svg";
 import square from "./square.svg";
 import wide from "./wide.svg";
@@ -25,12 +25,12 @@ import size from "./size.svg"
 
 
 export {
-  bill,
+  inputPicture,
   logo,
   menu,
   close,
-  google,
-  apple,
+  outputPicture,
+  arrow,
   mini,
   square,
   wide,
