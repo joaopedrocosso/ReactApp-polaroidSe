@@ -13,9 +13,6 @@ import miniBanner from "./miniBanner.svg"
 import squareBanner from "./squareBanner.svg"
 import wideBanner from "./wideBanner.svg"
 import download from "./download.svg"
-import miniMoldura from "./miniMoldura.png"
-import squareMoldura from "./squareMoldura.png"
-import wideMoldura from "./wideMoldura.png"
 import miniSelector from "./miniSelector.svg"
 import squareSelector from "./squareSelector.svg"
 import wideSelector from "./wideSelector.svg"
@@ -40,9 +37,6 @@ export {
   squareBanner,
   wideBanner,
   download,
-  miniMoldura,
-  squareMoldura,
-  wideMoldura,
   miniSelector,
   squareSelector,
   wideSelector,
