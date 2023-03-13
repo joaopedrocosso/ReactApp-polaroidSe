@@ -123,7 +123,7 @@ export default function Button() {
 
             <div className="flex flex-col space-y-2">
 
-            <img src={logo} alt="hoobank" className="w-52 mx-auto absolue drop-shadow-lg"/>
+            <img src={logo} alt="logo" className="w-52 mx-auto absolue drop-shadow-lg"/>
 
               {/* Preview da Imagem */}
                 <div className="drop-shadow-lg pb-2">
