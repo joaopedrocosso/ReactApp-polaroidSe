@@ -19,7 +19,10 @@ import wideSelector from "./wideSelector.svg"
 import fotoErrada from "./fotoErrada.svg"
 import test from "./test.png"
 import size from "./size.svg"
-
+import icon from "./icon.svg"
+import br from "./br.svg"
+import es from "./es.svg"
+import us from "./us.svg"
 
 export {
   inputPicture,
@@ -42,5 +45,9 @@ export {
   wideSelector,
   fotoErrada,
   test,
-  size
+  size,
+  icon,
+  br,
+  es,
+  us
 };

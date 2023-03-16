@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from 'react-scroll'
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -24,13 +26,14 @@ const Navbar = () => {
     setToggle(false);
   }
 
+  const { t } = useTranslation();
+
   return (
     <nav
       className={`w-full flex py-6 justify-between items-center navbar fixed top-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-white" : ""
       }`}
     >
-
       {/* Logo do site */}
       <Link
         to="envie sua foto"
@@ -42,8 +45,11 @@ const Navbar = () => {
         <img src={logo} alt="hoobank" className="w-full h-full md:ml-12 xl:ml-6" />
       </Link>
 
+      
+
       {/* Menu */}  
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 mr-36 pr-0 xl:mr-96 xl:pr-36">
+        <LanguageSwitcher />
         {navLinks.map((nav) => (
           <li
             key={nav.id}
@@ -58,7 +64,7 @@ const Navbar = () => {
               offset={-100}
               onClick={() => handleClick(nav.title)}
             >
-              {nav.title}
+              {t(nav.title)}
             </Link>
           </li>
         ))}
@@ -80,6 +86,9 @@ const Navbar = () => {
         >
 
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
+            <div className="mb-4">
+              <LanguageSwitcher />
+            </div>
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
@@ -94,7 +103,7 @@ const Navbar = () => {
                   offset={-100}
                   onClick={() => handleClick(nav.title)}
                 >
-                  {nav.title}
+                  {t(nav.title)}
                 </Link>
               </li>
             ))}

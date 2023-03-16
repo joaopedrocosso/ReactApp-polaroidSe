@@ -8,7 +8,6 @@ export const navLinks = [
   {
     id: "como imprimir",
     title: "COMO IMPRIMIR",
-    href: "#como-imprimir"
   },
 ];
 
@@ -39,19 +38,6 @@ export const stats = [
 ];
 
 export const footerLinks = [
-  {
-    title: "Links",
-    links: [
-      {
-        name: "envie sua foto",
-        link: "ENVIE SUA FOTO",
-      },
-      {
-        name: "como imprimir",
-        link: "COMO IMPRIMIR",
-      },
-    ],
-  },
   {
     title: "Câmeras",
     links: [

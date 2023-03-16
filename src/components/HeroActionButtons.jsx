@@ -1,12 +1,41 @@
 import React, { useState, useRef } from "react";
-import { criarPolaroid, envie, miniSelector, squareSelector, wideSelector, fotoErrada, download, size } from "../assets";
 import { logo } from "../assets";
 import { toPng } from "html-to-image";
+import { Button, Modal } from "@mui/material";
+import { styled } from '@mui/material/styles';
+import { useTranslation } from "react-i18next";
+import '../i18n/index';
 
-export default function Button() {
+
+export default function HeroActionButtons() {
   const [image, setImage] = useState({ preview: "", raw: "" });
-  const [popupVisible, setPopupVisible] = useState(false);
   const [bannerType, setBannerType] = useState("");
+
+  const StyledButton = styled(Button)({
+    backgroundColor: "black",
+    color: "white",
+    width:"205px",
+    height:"44px",
+    paddingLeft: "10px",
+    marginLeft: "10px",
+    marginTop: "6px",
+    borderRadius: "10px",
+    fontFamily: "NexaBold",
+    fontSize: "13px",
+    '&:hover':{
+        backgroundColor: "rgba(0,0,0,0.8)",
+
+    },
+    '& input[type="file"]': {
+      opacity: 0,
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      top: 0,
+      left: 0,
+      cursor: "pointer",
+    },
+});
 
   {/* Consts para o upload da imagem */}
   const handleChange = e => {
@@ -30,10 +59,17 @@ export default function Button() {
       },
       body: formData
     });
-
-    setPopupVisible(true);
   };
   {/* Consts para o upload da imagem */}
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+  setAnchorEl(true);
+  };
+  const handleClose = () => {
+  setAnchorEl(false);
+    };
 
   {/* Para o preview da imagem */}
   const handleBannerType = type => {
@@ -42,11 +78,13 @@ export default function Button() {
   {/* Para o preview da imagem */}
 
   {/* Para definir a opacidade do botão criarPolaroid */}
-  const criarPolaroidStyle = {
-    opacity: image.raw ? 1 : 0.5,
-  };
+
   {/* Para definir a opacidade do botão criarPolaroid */}
 
+  const handleClearImage = () => {
+    setImage({ preview: "", raw: "" });
+  };
+  
 
 
     const domEl = useRef(null);
@@ -61,51 +99,31 @@ export default function Button() {
     link.click();
 };
 
-
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center">
 
-      {/* Botões */}
       <form onSubmit={handleUpload} className="flex flex-col sm:flex-row justify-between w-full">
-
-        {/* Botão: Envie sua Foto */}
-        <label htmlFor="upload-button">
-          <img
-            src={envie}
-            alt="envie"
-            className="w-[205.19px] h-[392.04] object-contain mx-auto"
+        
+        <StyledButton variant="contained" component="label" onClick={handleChange}>
+          {t("send")}
+          <input
+            type="file"
+            id="upload-button"
+            accept="image/*"
+            onChange={handleChange}
           />
-        </label>
-        <input
-          type="file"
-          id="upload-button"
-          style={{ display: "none" }}
-          onChange={handleChange}
-        />
-        {/* Botão: Envie sua Foto */}
+        </StyledButton>
 
-        {/* Botão: Criar Polaroid */}
-        <label htmlFor="up" className="ml-0 sm:ml-4 mt-4 sm:mt-0" style={criarPolaroidStyle}>
-          <img
-            src={criarPolaroid}
-            alt="criarPolaroid"
-            className="w-[205.19px] h-[392.04] object-contain mx-auto"
-          />
-        </label>
-        <input
-          type="submit"
-          value={""}
-          id="up"
-          disabled={!image.raw}
-        />
-        {/* Botão: Criar Polaroid */}
+        <StyledButton variant="contained" onClick={handleClick} disabled={!image.raw}>
+          {t("create")}
+        </StyledButton>
 
       </form>
-      {/* Botões */}
 
       {/* TELA DE POPUP */}
-      {popupVisible && (        
+      {open && (        
       <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-60 z-50">
   
         <div className="flex bg-white h-screen sm:h-screen xl:h-5/6 w-screen md:w-2/6 sm:w-4/6  mx-4 rounded-lg p-6 max-w-4xl w-full relative">
@@ -113,7 +131,7 @@ export default function Button() {
         {/* Botão para fechar o Popup */}
         <button
           className="flex bg-transparent border-none text-2xl font-bold leading-none cursor-pointer p-2 rounded text-black hover:text-gray-600  absolute top-2 right-4"
-          onClick={() => setPopupVisible(false)}
+          onClick={handleClose}
         >
           X
         </button>
@@ -163,55 +181,30 @@ export default function Button() {
               <button onClick={downloadImage} className="bg-white border mt-2 border-gray-300 w-44 rounded-md py-1 px-4 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Download</button>
 
               {/* Seletores e Logo*/}
-              <div className="flex flex-col justify-center items-center mt-4">
-              
-                <img
-                  src={size}
-                  className="cursor-pointer mb-2 w-[205.19px] h-[392.04]"
-                />
-            
-                {/* Botões de escolha do Tamanho */}
-                <img
-                  src={miniSelector}
-                  onClick={() => handleBannerType("mini")}
-                  className="cursor-pointer mb-2 w-[205.19px] h-[392.04]"
-                />
-                <img
-                  src={squareSelector}
-                  onClick={() => handleBannerType("square")}
-                  className="cursor-pointer mb-2 w-[205.19px] h-[392.04]"
-                />
-                <img
-                  src={wideSelector}
-                  onClick={() => handleBannerType("wide")}
-                  className="cursor-pointer mb-2 w-[205.19px] h-[392.04]"
-                />
-                {/* Botões de escolha do Tamanho */}
+              <div className="flex flex-col justify-center items-center mr-2 mt-4">
+                    
+                
+                <StyledButton variant="contained" onClick={() => handleBannerType("mini")}>
+                  MINI
+                </StyledButton>
 
-                {/* Botão de mudança de foto */}
-                <div>
-                  <label htmlFor="upload-button">
-                    <img
-                      src={fotoErrada}
-                      alt="fotoErrada"
-                      className="w-[205.19px] h-[392.04]"
-                    />
-                  </label>
+                <StyledButton variant="contained" onClick={() => handleBannerType("square")}>
+                  SQUARE
+                </StyledButton>
+
+                <StyledButton variant="contained" onClick={() => handleBannerType("wide")}>
+                  WIDE
+                </StyledButton>
+
+                <StyledButton variant="contained" component="label" onClick={handleChange}>
+                  {t("sendAnother")}
                   <input
+                    type="file"
                     id="upload-button"
                     accept="image/*"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      const reader = new FileReader();
-                      reader.readAsDataURL(file);
-                      reader.onloadend = () => {
-                        setImage({ file: file, preview: reader.result });
-                      };
-                    }}
+                    onChange={handleChange}
                   />
-                </div>
-                {/* Botão de mudança de foto */}
-                
+                </StyledButton>
 
               </div>
               {/* Seletores e Logo*/}
